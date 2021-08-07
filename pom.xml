@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>fr.zetioz</groupId>
+  <artifactId>ZeHitBox</artifactId>
+  <version>1.0.0</version>
+  <name>ZeHitBox</name>
+  
+  <repositories>
+	<repository>
+	    <id>bukkit-repo</id>
+	    <url>https://hub.spigotmc.org/nexus/content/repositories/public/</url>
+	</repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+		<groupId>org.spigotmc</groupId>
+		<artifactId>spigot-api</artifactId>
+		<version>1.17.1-R0.1-SNAPSHOT</version>
+		<scope>provided</scope>
+    </dependency>
+  </dependencies>
+  
+  <build>
+	<sourceDirectory>src</sourceDirectory>
+	<plugins>
+		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<goals>
+						<goal>single</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+				<excludes>
+                    <exclude>resources/**</exclude>
+                </excludes>
+				<appendAssemblyId>false</appendAssemblyId>
+				<finalName>${project.name}-${project.version}</finalName>
+			</configuration>
+		</plugin>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.7.0</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+	</plugins>
+	<resources>
+      <resource>
+        <directory>.\src\resources</directory>
+      </resource>
+    </resources>
+  </build>
+</project>

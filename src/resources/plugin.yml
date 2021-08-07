@@ -1,0 +1,8 @@
+name: ZeHitBox
+version: 1.0.0
+author: ZeTioZ
+main: fr.zetioz.zehitbox.ZeHitBoxMain
+api-version: 1.17
+commands:
+  zehitbox:
+    description: Main ZeHitBox command
